@@ -1,25 +1,32 @@
 ﻿using SendGrid.Helpers.Mail;
 using SendGrid;
+using VKA.Cupido.Entities;
 
 namespace VKA.Cupido.Clients
 {
     public class MailClient : IMailClient
     {
-        public async Task SendEmail()
+        private ISendGridClient _mailClient;
+        public MailClient(ISendGridClient mailClient)
+        {
+            _mailClient = mailClient;
+        }
+
+        public async Task SendEmail(EmailEntity emailEntity)
         {
             try
             {
-                var apiKey = Environment.GetEnvironmentVariable("SENDGRID_API_KEY", EnvironmentVariableTarget.User);
-                var client = new SendGridClient(apiKey);
-                var from = new EmailAddress("vainiotux@gmail.com", "Vainius");
-                var subject = "Sending with SendGrid is Fun";
-                var to = new EmailAddress("vainiusbaran@gmail.com", "Vainius");
-                var plainTextContent = "and easy to do anywhere, even with C#";
-                var htmlContent = "<strong>and easy to do anywhere, even with C# lala</strong>";
-                var msg = MailHelper.CreateSingleEmail(from, to, subject, plainTextContent, htmlContent);
-                var response = await client.SendEmailAsync(msg);
+                var sender = new EmailAddress(emailEntity.SenderEmail, emailEntity.SenderName);
+                var recpient = new EmailAddress(emailEntity.RecipientName, emailEntity.RecipientName);
+                var sendGridMessage = MailHelper.CreateSingleEmail(sender, 
+                    recpient, 
+                    emailEntity.Subject, 
+                    emailEntity.PlainTextContent, 
+                    emailEntity.HtmlContent
+                    );
 
-                Console.WriteLine(response.StatusCode);
+                var response = await _mailClient.SendEmailAsync(sendGridMessage);
+
                 if (response.StatusCode != System.Net.HttpStatusCode.Accepted)
                 {
                     string responseBody = await response.Body.ReadAsStringAsync();

@@ -1,7 +1,9 @@
-﻿namespace VKA.Cupido.Clients
+﻿using VKA.Cupido.Entities;
+
+namespace VKA.Cupido.Clients
 {
     public interface IMailClient
     {
-        public Task SendEmail();
+        public Task SendEmail(EmailEntity emailEntity);
     }
 }

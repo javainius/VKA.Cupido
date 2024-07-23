@@ -1,8 +1,10 @@
-﻿using VKA.Cupido.Clients;
+﻿using SendGrid;
+using VKA.Cupido.Clients;
+
+var apiKey = Environment.GetEnvironmentVariable("SENDGRID_API_KEY", EnvironmentVariableTarget.User);
+IMailClient mailClient = new MailClient(new SendGridClient(apiKey));
 
 Console.WriteLine("Sending email");
-
-IMailClient mailClient = new MailClient();
 
 mailClient.SendEmail().Wait();
 
