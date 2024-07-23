@@ -16,16 +16,17 @@ namespace VKA.Cupido.Clients
         {
             try
             {
-                var sender = new EmailAddress(emailEntity.SenderEmail, emailEntity.SenderName);
-                var recpient = new EmailAddress(emailEntity.RecipientName, emailEntity.RecipientName);
-                var sendGridMessage = MailHelper.CreateSingleEmail(sender, 
-                    recpient, 
+                EmailAddress senderEmailAddress = new EmailAddress(emailEntity.SenderEmail, emailEntity.SenderName);
+                EmailAddress recipient = new EmailAddress(emailEntity.RecipientEmail, emailEntity.RecipientName);
+                SendGridMessage sendGridMessage = MailHelper.CreateSingleEmail(
+                    senderEmailAddress, 
+                    recipient, 
                     emailEntity.Subject, 
                     emailEntity.PlainTextContent, 
                     emailEntity.HtmlContent
                     );
 
-                var response = await _mailClient.SendEmailAsync(sendGridMessage);
+                Response response = await _mailClient.SendEmailAsync(sendGridMessage);
 
                 if (response.StatusCode != System.Net.HttpStatusCode.Accepted)
                 {

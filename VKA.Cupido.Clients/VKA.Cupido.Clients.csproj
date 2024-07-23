@@ -10,4 +10,8 @@
     <PackageReference Include="SendGrid" Version="9.29.3" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\VKA.Cupido.Entities\VKA.Cupido.Entities.csproj" />
+  </ItemGroup>
+
 </Project>

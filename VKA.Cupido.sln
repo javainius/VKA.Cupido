@@ -5,7 +5,11 @@ VisualStudioVersion = 17.10.35013.160
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VKA.Cupido.Application", "VKA.Cupido.Application\VKA.Cupido.Application.csproj", "{5E7B2608-87B4-4BC5-84A0-4749F6867C2C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VKA.Cupido.Clients", "VKA.Cupido.Clients\VKA.Cupido.Clients.csproj", "{BAAB3DDE-0862-4C0D-8B04-7497B8B20D45}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VKA.Cupido.Clients", "VKA.Cupido.Clients\VKA.Cupido.Clients.csproj", "{BAAB3DDE-0862-4C0D-8B04-7497B8B20D45}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VKA.Cupido.Models", "VKA.Cupido.Models\VKA.Cupido.Models.csproj", "{3A726A58-15E2-47B1-8657-240C602AC6B3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VKA.Cupido.Entities", "VKA.Cupido.Entities\VKA.Cupido.Entities.csproj", "{2934C825-4A85-4290-AE64-DC319605613E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +25,14 @@ Global
 		{BAAB3DDE-0862-4C0D-8B04-7497B8B20D45}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BAAB3DDE-0862-4C0D-8B04-7497B8B20D45}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BAAB3DDE-0862-4C0D-8B04-7497B8B20D45}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3A726A58-15E2-47B1-8657-240C602AC6B3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3A726A58-15E2-47B1-8657-240C602AC6B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3A726A58-15E2-47B1-8657-240C602AC6B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3A726A58-15E2-47B1-8657-240C602AC6B3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2934C825-4A85-4290-AE64-DC319605613E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2934C825-4A85-4290-AE64-DC319605613E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2934C825-4A85-4290-AE64-DC319605613E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2934C825-4A85-4290-AE64-DC319605613E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
