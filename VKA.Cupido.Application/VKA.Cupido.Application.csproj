@@ -10,6 +10,7 @@
   <ItemGroup>
     <ProjectReference Include="..\VKA.Cupido.Clients\VKA.Cupido.Clients.csproj" />
     <ProjectReference Include="..\VKA.Cupido.Models\VKA.Cupido.Models.csproj" />
+    <ProjectReference Include="..\VKA.Cupido.Persistence\VKA.Cupido.Persistence.csproj" />
   </ItemGroup>
 
 </Project>

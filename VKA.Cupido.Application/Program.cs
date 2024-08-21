@@ -3,7 +3,7 @@ using VKA.Cupido.Application.Mappers;
 using VKA.Cupido.Clients;
 using VKA.Cupido.Models;
 
-var apiKey = Environment.GetEnvironmentVariable("SENDGRID_API_KEY", EnvironmentVariableTarget.User);
+string? apiKey = Environment.GetEnvironmentVariable("SENDGRID_API_KEY", EnvironmentVariableTarget.User);
 IMailClient mailClient = new MailClient(new SendGridClient(apiKey));
 
 Console.WriteLine("Sending email");

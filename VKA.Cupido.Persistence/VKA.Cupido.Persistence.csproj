@@ -18,4 +18,8 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\VKA.Cupido.Entities\VKA.Cupido.Entities.csproj" />
+  </ItemGroup>
+
 </Project>
