@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using VKA.Cupido.Persistence;
 
@@ -11,9 +12,11 @@ using VKA.Cupido.Persistence;
 namespace VKA.Cupido.Persistence.Migrations
 {
     [DbContext(typeof(CupidoContext))]
-    partial class CupidoContextModelSnapshot : ModelSnapshot
+    [Migration("20240822174831_AdjustedPersonModelAndRenamedIt")]
+    partial class AdjustedPersonModelAndRenamedIt
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -78,7 +81,7 @@ namespace VKA.Cupido.Persistence.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Persons");
+                    b.ToTable("Contacts");
                 });
 
             modelBuilder.Entity("VKA.Cupido.Entities.QuestionEntity", b =>

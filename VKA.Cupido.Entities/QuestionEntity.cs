@@ -6,11 +6,9 @@ using System.Threading.Tasks;
 
 namespace VKA.Cupido.Entities
 {
-    public class PairEntity
+    public class QuestionEntity
     {
         public int Id { get; set; }
-        public DateOnly WhenPaired { get; set; }
-        public PersonEntity FirstPerson { get; set; }
-        public PersonEntity SecondPerson { get; set; }
+        public string Question { get; set; }
     }
 }

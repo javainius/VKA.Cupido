@@ -16,8 +16,8 @@ namespace VKA.Cupido.Clients
         {
             try
             {
-                EmailAddress senderEmailAddress = new EmailAddress(emailEntity.SenderEmail, emailEntity.SenderName);
-                EmailAddress recipient = new EmailAddress(emailEntity.RecipientEmail, emailEntity.RecipientName);
+                EmailAddress senderEmailAddress = new(emailEntity.SenderEmail, emailEntity.SenderName);
+                EmailAddress recipient = new(emailEntity.RecipientEmail, emailEntity.RecipientName);
                 SendGridMessage sendGridMessage = MailHelper.CreateSingleEmail(
                     senderEmailAddress, 
                     recipient, 

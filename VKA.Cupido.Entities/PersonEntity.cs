@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace VKA.Cupido.Entities
 {
-    public class ContactEntity
+    public class PersonEntity
     {
         public int Id { get; set; }
         public string Name { get; set; }

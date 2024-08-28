@@ -1,24 +1,50 @@
-﻿using SendGrid;
-using VKA.Cupido.Application.Mappers;
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
+using SendGrid;
+using VKA.Cupido.Application;
+using VKA.Cupido.Application.Mappings;
 using VKA.Cupido.Clients;
-using VKA.Cupido.Models;
+using VKA.Cupido.Persistence;
+using VKA.Cupido.Persistence.Interfaces;
+using VKA.Cupido.Persistence.Repositories;
+using VKA.Cupido.Services;
 
-string? apiKey = Environment.GetEnvironmentVariable("SENDGRID_API_KEY", EnvironmentVariableTarget.User);
-IMailClient mailClient = new MailClient(new SendGridClient(apiKey));
+var host = CreateHostBuilder(args).Build();
 
-Console.WriteLine("Sending email");
+// Run the application
+Application application = host.Services.GetRequiredService<Application>();
+await application.Run();
 
-EmailModel emailModel = new EmailModel()
-{
-    SenderEmail = "vainiotux@gmail.com",
-    SenderName = "Vainius",
-    RecipientEmail = "vainiusbaran@gmail.com",
-    RecipientName = "Vainius",
-    Subject = "Email",
-    HtmlContent = "<strong>and easy to do anywhere, even with C#</strong>",
-    PlainTextContent = "and easy to do anywhere, even with C#"
-};
+static IHostBuilder CreateHostBuilder(string[] args) =>
+     Host.CreateDefaultBuilder(args)
+        .ConfigureAppConfiguration((hostingContext, config) =>
+        {
+            // Ensure the appsettings.json file is loaded
+            config.AddJsonFile("appsettings.json", optional: false, reloadOnChange: true);
+            config.AddEnvironmentVariables();
 
-await mailClient.SendEmail(emailModel.EmailModelToEmailEntity());
+            if (args != null)
+            {
+                config.AddCommandLine(args);
+            }
+        })
+        .ConfigureServices((context, services) =>
+        {
+            services.AddSingleton<Application>(); // Register the main application class
+            services.AddDbContext<CupidoContext>(options => options
+                .UseSqlServer(context.Configuration.GetConnectionString("DbConnectionStrings")));
 
-Console.WriteLine("Email was sent");
+            services.AddAutoMapper(typeof(MappingProfile));
+            IConfigurationSection sendGridSection = context.Configuration.GetSection("SendGrid");
+            string apiKey = sendGridSection.GetValue<string>("ApiKey");
+            services.AddSingleton<ISendGridClient>(new SendGridClient(apiKey));
+            services.AddTransient<IPersonRepository, PersonRepository>();
+            services.AddTransient<IPairRepository, PairRepository>();
+            services.AddTransient<IMailClient, MailClient>();
+            services.AddTransient<IPairService, PairService>();
+        });
+
+//--------------------------
+//string? apiKey = Environment.GetEnvironmentVariable("SENDGRID_API_KEY", EnvironmentVariableTarget.User);

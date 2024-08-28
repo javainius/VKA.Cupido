@@ -1,17 +1,17 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using VKA.Cupido.Entities;
 
 namespace VKA.Cupido.Persistence
 {
     public class CupidoContext : DbContext
     {
-        public DbSet<ContactEntity> Contacts { get; set; }
+        public DbSet<PersonEntity> Persons { get; set; }
         public DbSet<PairEntity> Pairs { get; set; }
+        public DbSet<QuestionEntity> Questions { get; set; }
+
+        public CupidoContext(DbContextOptions<CupidoContext> options) : base(options)
+        {
+        }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

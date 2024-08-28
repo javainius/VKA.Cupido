@@ -8,9 +8,23 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\VKA.Cupido.Clients\VKA.Cupido.Clients.csproj" />
-    <ProjectReference Include="..\VKA.Cupido.Models\VKA.Cupido.Models.csproj" />
-    <ProjectReference Include="..\VKA.Cupido.Persistence\VKA.Cupido.Persistence.csproj" />
+    <PackageReference Include="AutoMapper" Version="13.0.1" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="8.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Hosting" Version="8.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\VKA.Cupido.Services\VKA.Cupido.Services.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Mappers\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="appsettings.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>
