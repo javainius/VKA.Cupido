@@ -21,10 +21,11 @@ namespace VKA.Cupido.Services
         
         private List<PairModel> _pairs;
 
-        public PairService(IPersonRepository personRepository, IPairRepository pairRepository, IMapper mapper)
+        public PairService(IPersonRepository personRepository, IPairRepository pairRepository, IMapper mapper, IMailClient mailClient)
         {
             _personRepository = personRepository;
             _pairRepository = pairRepository;
+            _mailClient = mailClient;
             _mapper = mapper;
         }
 

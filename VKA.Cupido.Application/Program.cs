@@ -40,7 +40,7 @@ static IHostBuilder CreateHostBuilder(string[] args) =>
             IConfigurationSection sendGridSection = context.Configuration.GetSection("SendGrid");
             string apiKey = sendGridSection.GetValue<string>("ApiKey");
             services.AddSingleton<ISendGridClient>(new SendGridClient(apiKey));
-            services.AddTransient<IPersonRepository, PersonRepository>();
+            services.AddSingleton<IPersonRepository, PersonRepository>();
             services.AddTransient<IPairRepository, PairRepository>();
             services.AddTransient<IMailClient, MailClient>();
             services.AddTransient<IPairService, PairService>();

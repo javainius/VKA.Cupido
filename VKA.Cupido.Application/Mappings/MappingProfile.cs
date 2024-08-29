@@ -18,6 +18,9 @@ namespace VKA.Cupido.Application.Mappings
 
             CreateMap<PairEntity, PairModel>();
             CreateMap<PairModel, PairEntity>();
+
+            CreateMap<EmailEntity, EmailModel>();
+            CreateMap<EmailModel, EmailEntity>();
         }
     }
 }

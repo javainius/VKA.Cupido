@@ -15,7 +15,7 @@ namespace VKA.Cupido.Models
             WhenPaired = whenPaired;
         }
 
-        public int Id { get; set; }
+        public int? Id { get; set; }
         public DateOnly WhenPaired { get; set; }
         public PersonModel FirstPerson { get; set; }
         public PersonModel SecondPerson { get; set; }

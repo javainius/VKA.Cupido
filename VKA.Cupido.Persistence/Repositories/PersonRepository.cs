@@ -20,7 +20,7 @@ namespace VKA.Cupido.Persistence.Repositories
 
         public async Task<List<PersonEntity>> GetPersons()
         {
-            return await _context.Persons.ToListAsync();
+            return await _context.Persons.AsNoTracking().ToListAsync();
         }
     }
 }

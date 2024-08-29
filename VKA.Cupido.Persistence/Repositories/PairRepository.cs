@@ -25,8 +25,14 @@ namespace VKA.Cupido.Persistence.Repositories
 
         public async Task<List<PairEntity>> SavePairs(List<PairEntity> pairs)
         {
+            foreach (var pair in pairs)
+            {
+                _context.Entry(pair.FirstPerson).State = EntityState.Unchanged;
+                _context.Entry(pair.SecondPerson).State = EntityState.Unchanged;
+            }
+
             await _context.Pairs.AddRangeAsync(pairs);
-            return await GetPairs();
+            return pairs;
         }
     }
 }
