@@ -21,7 +21,6 @@ static IHostBuilder CreateHostBuilder(string[] args) =>
      Host.CreateDefaultBuilder(args)
         .ConfigureAppConfiguration((hostingContext, config) =>
         {
-            // Ensure the appsettings.json file is loaded
             config.AddJsonFile("appsettings.json", optional: false, reloadOnChange: true);
             config.AddEnvironmentVariables();
 
@@ -32,19 +31,25 @@ static IHostBuilder CreateHostBuilder(string[] args) =>
         })
         .ConfigureServices((context, services) =>
         {
-            services.AddSingleton<Application>(); // Register the main application class
-            services.AddDbContext<CupidoContext>(options => options
-                .UseSqlServer(context.Configuration.GetConnectionString("DbConnectionStrings")));
+            services.AddScoped<Application>();
+            services.AddDbContext<CupidoContext>(options => 
+            options.UseSqlServer(
+                context.Configuration.GetConnectionString("AZURE_SQL_CONNECTIONSTRING"),
+                sqlOptions =>
+                    {
+                        sqlOptions.CommandTimeout(60);
+                        sqlOptions.EnableRetryOnFailure(5, TimeSpan.FromSeconds(20), null);
+                    }
+                )
+            );
+                //.UseSqlServer(context.Configuration.GetConnectionString("DbConnectionStrings")));
 
             services.AddAutoMapper(typeof(MappingProfile));
             IConfigurationSection sendGridSection = context.Configuration.GetSection("SendGrid");
             string apiKey = sendGridSection.GetValue<string>("ApiKey");
             services.AddSingleton<ISendGridClient>(new SendGridClient(apiKey));
-            services.AddSingleton<IPersonRepository, PersonRepository>();
+            services.AddTransient<IPersonRepository, PersonRepository>();
             services.AddTransient<IPairRepository, PairRepository>();
             services.AddTransient<IMailClient, MailClient>();
             services.AddTransient<IPairService, PairService>();
         });
-
-//--------------------------
-//string? apiKey = Environment.GetEnvironmentVariable("SENDGRID_API_KEY", EnvironmentVariableTarget.User);
