@@ -34,7 +34,7 @@ static IHostBuilder CreateHostBuilder(string[] args) =>
             services.AddScoped<Application>();
             services.AddDbContext<CupidoContext>(options => 
             options.UseSqlServer(
-                context.Configuration.GetConnectionString("AZURE_SQL_CONNECTIONSTRING"),
+                context.Configuration.GetConnectionString("AzureSqlConnectionString"),
                 sqlOptions =>
                     {
                         sqlOptions.CommandTimeout(60);
