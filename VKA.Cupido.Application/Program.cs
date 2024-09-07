@@ -32,9 +32,12 @@ static IHostBuilder CreateHostBuilder(string[] args) =>
         .ConfigureServices((context, services) =>
         {
             services.AddScoped<Application>();
+            string connectionString = context.Configuration.GetConnectionString("AzureSqlConnectionString");
+            Console.WriteLine("Connection string: " + connectionString);
+
             services.AddDbContext<CupidoContext>(options => 
             options.UseSqlServer(
-                context.Configuration.GetConnectionString("AzureSqlConnectionString"),
+                connectionString,
                 sqlOptions =>
                     {
                         sqlOptions.CommandTimeout(60);
@@ -47,6 +50,7 @@ static IHostBuilder CreateHostBuilder(string[] args) =>
             services.AddAutoMapper(typeof(MappingProfile));
             IConfigurationSection sendGridSection = context.Configuration.GetSection("SendGrid");
             string apiKey = sendGridSection.GetValue<string>("ApiKey");
+            Console.WriteLine("Api Key: " + apiKey);
             services.AddSingleton<ISendGridClient>(new SendGridClient(apiKey));
             services.AddTransient<IPersonRepository, PersonRepository>();
             services.AddTransient<IPairRepository, PairRepository>();
