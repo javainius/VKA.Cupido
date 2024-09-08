@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.10.35013.160
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VKA.Cupido.Application", "VKA.Cupido.Application\VKA.Cupido.Application.csproj", "{5E7B2608-87B4-4BC5-84A0-4749F6867C2C}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VKA.Cupido.Clients", "VKA.Cupido.Clients\VKA.Cupido.Clients.csproj", "{BAAB3DDE-0862-4C0D-8B04-7497B8B20D45}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VKA.Cupido.Models", "VKA.Cupido.Models\VKA.Cupido.Models.csproj", "{3A726A58-15E2-47B1-8657-240C602AC6B3}"
@@ -21,18 +19,12 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{D5
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VKA.Cupido.Services", "VKA.Cupido.Services\VKA.Cupido.Services.csproj", "{95397EE7-6382-444F-8FA3-59C94C66DDA4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VKA.Cupido.Functions", "VKA.Cupido.Functions\VKA.Cupido.Functions.csproj", "{EE658FCF-CC75-47C6-BD8D-18D18D9A33DE}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{5E7B2608-87B4-4BC5-84A0-4749F6867C2C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5E7B2608-87B4-4BC5-84A0-4749F6867C2C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5E7B2608-87B4-4BC5-84A0-4749F6867C2C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5E7B2608-87B4-4BC5-84A0-4749F6867C2C}.Release|Any CPU.Build.0 = Release|Any CPU
 		{BAAB3DDE-0862-4C0D-8B04-7497B8B20D45}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{BAAB3DDE-0862-4C0D-8B04-7497B8B20D45}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BAAB3DDE-0862-4C0D-8B04-7497B8B20D45}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -53,16 +45,11 @@ Global
 		{95397EE7-6382-444F-8FA3-59C94C66DDA4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{95397EE7-6382-444F-8FA3-59C94C66DDA4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{95397EE7-6382-444F-8FA3-59C94C66DDA4}.Release|Any CPU.Build.0 = Release|Any CPU
-		{EE658FCF-CC75-47C6-BD8D-18D18D9A33DE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{EE658FCF-CC75-47C6-BD8D-18D18D9A33DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{EE658FCF-CC75-47C6-BD8D-18D18D9A33DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{EE658FCF-CC75-47C6-BD8D-18D18D9A33DE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{5E7B2608-87B4-4BC5-84A0-4749F6867C2C} = {0C79BFFC-6A06-419B-9390-45CCBCC801DF}
 		{BAAB3DDE-0862-4C0D-8B04-7497B8B20D45} = {185F6BF1-8AFB-4D38-815C-04DCA84DEB2F}
 		{3A726A58-15E2-47B1-8657-240C602AC6B3} = {D5F10268-C4E4-4EE4-87FD-1CD3FAD0EF2C}
 		{2934C825-4A85-4290-AE64-DC319605613E} = {185F6BF1-8AFB-4D38-815C-04DCA84DEB2F}
