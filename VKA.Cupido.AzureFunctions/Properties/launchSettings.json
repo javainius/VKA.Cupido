@@ -1,0 +1,9 @@
+{
+  "profiles": {
+    "VKA.Cupido.AzureFunctions": {
+      "commandName": "Project",
+      "commandLineArgs": "--port 7016",
+      "launchBrowser": false
+    }
+  }
+}

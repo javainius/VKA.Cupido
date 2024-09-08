@@ -19,7 +19,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Persistence", "Persistence"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{D5F10268-C4E4-4EE4-87FD-1CD3FAD0EF2C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VKA.Cupido.Services", "VKA.Cupido.Services\VKA.Cupido.Services.csproj", "{95397EE7-6382-444F-8FA3-59C94C66DDA4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VKA.Cupido.Services", "VKA.Cupido.Services\VKA.Cupido.Services.csproj", "{95397EE7-6382-444F-8FA3-59C94C66DDA4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VKA.Cupido.Functions", "VKA.Cupido.Functions\VKA.Cupido.Functions.csproj", "{EE658FCF-CC75-47C6-BD8D-18D18D9A33DE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,6 +53,10 @@ Global
 		{95397EE7-6382-444F-8FA3-59C94C66DDA4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{95397EE7-6382-444F-8FA3-59C94C66DDA4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{95397EE7-6382-444F-8FA3-59C94C66DDA4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EE658FCF-CC75-47C6-BD8D-18D18D9A33DE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EE658FCF-CC75-47C6-BD8D-18D18D9A33DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EE658FCF-CC75-47C6-BD8D-18D18D9A33DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EE658FCF-CC75-47C6-BD8D-18D18D9A33DE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

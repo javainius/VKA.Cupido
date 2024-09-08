@@ -1,0 +1,19 @@
+{
+  "version": "2.0",
+  "logging": {
+    "applicationInsights": {
+      "samplingSettings": {
+        "isEnabled": true,
+        "excludedTypes": "Request"
+      },
+      "enableLiveMetricsFilters": true
+    }
+  },
+  "ConnectionStrings": {
+    "DbConnectionString": "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=VKA.Cupido;Integrated Security=True;",
+    "AzureSqlConnectionString": ""
+  },
+  "SendGrid": {
+    "ApiKey": ""
+  }
+}
