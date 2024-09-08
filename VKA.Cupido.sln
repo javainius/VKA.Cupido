@@ -19,6 +19,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{D5
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VKA.Cupido.Services", "VKA.Cupido.Services\VKA.Cupido.Services.csproj", "{95397EE7-6382-444F-8FA3-59C94C66DDA4}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VKA.Cupido.Functions", "VKA.Cupido.Functions\VKA.Cupido.Functions.csproj", "{B2647431-4D47-4276-B8ED-540E60B9C0CF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,10 @@ Global
 		{95397EE7-6382-444F-8FA3-59C94C66DDA4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{95397EE7-6382-444F-8FA3-59C94C66DDA4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{95397EE7-6382-444F-8FA3-59C94C66DDA4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B2647431-4D47-4276-B8ED-540E60B9C0CF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B2647431-4D47-4276-B8ED-540E60B9C0CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B2647431-4D47-4276-B8ED-540E60B9C0CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B2647431-4D47-4276-B8ED-540E60B9C0CF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -55,6 +61,7 @@ Global
 		{2934C825-4A85-4290-AE64-DC319605613E} = {185F6BF1-8AFB-4D38-815C-04DCA84DEB2F}
 		{B0580E18-C35F-48FD-9F21-6B1ED1E3DB50} = {185F6BF1-8AFB-4D38-815C-04DCA84DEB2F}
 		{95397EE7-6382-444F-8FA3-59C94C66DDA4} = {D5F10268-C4E4-4EE4-87FD-1CD3FAD0EF2C}
+		{B2647431-4D47-4276-B8ED-540E60B9C0CF} = {0C79BFFC-6A06-419B-9390-45CCBCC801DF}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C89CD40B-AAD7-4016-8FBA-EC717E0DF1D8}
