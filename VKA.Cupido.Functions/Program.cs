@@ -31,7 +31,7 @@ var host = new HostBuilder()
             sqlOptions =>
             {
                 sqlOptions.CommandTimeout(60);
-                sqlOptions.EnableRetryOnFailure(5, TimeSpan.FromSeconds(20), null);
+                sqlOptions.EnableRetryOnFailure(5, TimeSpan.FromSeconds(60), null);
             }
             )
         );
