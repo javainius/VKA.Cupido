@@ -23,7 +23,6 @@ var host = new HostBuilder()
         services.ConfigureFunctionsApplicationInsights();
 
         string connectionString = context.Configuration.GetConnectionString("AzureSqlConnectionString");
-        Console.WriteLine("Connection string: " + connectionString);
 
         services.AddDbContext<CupidoContext>(options =>
         options.UseSqlServer(
@@ -40,12 +39,12 @@ var host = new HostBuilder()
         services.AddAutoMapper(typeof(MappingProfile));
         IConfigurationSection sendGridSection = context.Configuration.GetSection("SendGrid");
         string apiKey = sendGridSection.GetValue<string>("ApiKey");
-        Console.WriteLine("Api Key: " + apiKey);
 
         services.AddSingleton<ISendGridClient>(new SendGridClient(apiKey));
         services.AddTransient<IPersonRepository, PersonRepository>();
         services.AddTransient<IPairRepository, PairRepository>();
         services.AddTransient<IMailClient, MailClient>();
+        services.AddTransient<IEmailService, EmailService>();
         services.AddTransient<IPairService, PairService>();
     })
     .Build();

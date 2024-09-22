@@ -1,11 +1,4 @@
 ﻿using AutoMapper;
-using Microsoft.EntityFrameworkCore.Metadata;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using VKA.Cupido.Clients;
 using VKA.Cupido.Entities;
 using VKA.Cupido.Models;
 using VKA.Cupido.Persistence.Interfaces;
@@ -17,24 +10,24 @@ namespace VKA.Cupido.Services
         private readonly IPersonRepository _personRepository;
         private readonly IPairRepository _pairRepository;
         private readonly IMapper _mapper;
-        private readonly IMailClient _mailClient;
-        
+        private readonly IEmailService _emailService;
+
         private List<PairModel> _pairs;
 
-        public PairService(IPersonRepository personRepository, IPairRepository pairRepository, IMapper mapper, IMailClient mailClient)
+        public PairService(IPersonRepository personRepository, IPairRepository pairRepository, IMapper mapper, IEmailService emailService)
         {
             _personRepository = personRepository;
             _pairRepository = pairRepository;
-            _mailClient = mailClient;
             _mapper = mapper;
+            _emailService = emailService;
         }
 
         public async Task NotifyAboutPairing()
         {
-            foreach(var pair in _pairs)
+            foreach (var pair in _pairs)
             {
-                await SendEmail(pair.FirstPerson, pair.SecondPerson);
-                await SendEmail(pair.SecondPerson, pair.FirstPerson);
+                await _emailService.SendEmail(pair.FirstPerson, pair.SecondPerson);
+                await _emailService.SendEmail(pair.SecondPerson, pair.FirstPerson);
             }
         }
 
@@ -52,7 +45,7 @@ namespace VKA.Cupido.Services
             List<PersonModel> secondHalfPersons = persons.GetRange(midpoint, count - midpoint);
             List<PairModel> pairs = new();
 
-            for(int i = 0; i < midpoint; i++)
+            for (int i = 0; i < midpoint; i++)
             {
                 PairModel pair = new(firstHalfPersons[i], secondHalfPersons[i], DateOnly.FromDateTime(DateTime.Now));
                 pairs.Add(pair);
@@ -62,23 +55,6 @@ namespace VKA.Cupido.Services
             _pairs = savedPairs.Select(x => _mapper.Map<PairModel>(x)).ToList();
 
             return _pairs;
-        }
-
-        private async Task SendEmail(PersonModel recipient, PersonModel assignedPartner)
-        {
-
-            EmailModel emailModel = new EmailModel()
-            {
-                SenderEmail = "vainiotux@gmail.com",
-                SenderName = "Vainius",
-                RecipientEmail = recipient.Email,
-                RecipientName = recipient.Name,
-                Subject = "Email" ,
-                HtmlContent = "<strong>and easy to do anywhere, even with C#</strong>" + assignedPartner.Name,
-                PlainTextContent = "and easy to do anywhere, even with C# " + recipient.FacebookProfileLink
-            };
-
-            await _mailClient.SendEmail(_mapper.Map<EmailEntity>(emailModel));
         }
     }
 }

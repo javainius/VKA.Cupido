@@ -16,10 +16,10 @@ namespace VKA.Cupido.Functions
         }
 
         [Function("PairingFunction")]
-        public async Task Run([TimerTrigger("0 */3 * * * *")] TimerInfo myTimer)
+        public async Task Run([TimerTrigger("0 0 9 23 * *")] TimerInfo myTimer)
         {
             _logger.LogInformation($"C# Timer trigger function executed at: {DateTime.Now}");
-            
+
             if (myTimer.ScheduleStatus is not null)
             {
                 _logger.LogInformation($"Next timer schedule at: {myTimer.ScheduleStatus.Next}");

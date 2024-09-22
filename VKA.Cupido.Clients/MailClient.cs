@@ -1,12 +1,12 @@
-﻿using SendGrid.Helpers.Mail;
-using SendGrid;
+﻿using SendGrid;
+using SendGrid.Helpers.Mail;
 using VKA.Cupido.Entities;
 
 namespace VKA.Cupido.Clients
 {
     public class MailClient : IMailClient
     {
-        private ISendGridClient _mailClient;
+        private readonly ISendGridClient _mailClient;
         public MailClient(ISendGridClient mailClient)
         {
             _mailClient = mailClient;
@@ -19,10 +19,10 @@ namespace VKA.Cupido.Clients
                 EmailAddress senderEmailAddress = new(emailEntity.SenderEmail, emailEntity.SenderName);
                 EmailAddress recipient = new(emailEntity.RecipientEmail, emailEntity.RecipientName);
                 SendGridMessage sendGridMessage = MailHelper.CreateSingleEmail(
-                    senderEmailAddress, 
-                    recipient, 
-                    emailEntity.Subject, 
-                    emailEntity.PlainTextContent, 
+                    senderEmailAddress,
+                    recipient,
+                    emailEntity.Subject,
+                    emailEntity.PlainTextContent,
                     emailEntity.HtmlContent
                     );
 
@@ -41,4 +41,3 @@ namespace VKA.Cupido.Clients
         }
     }
 }
- 

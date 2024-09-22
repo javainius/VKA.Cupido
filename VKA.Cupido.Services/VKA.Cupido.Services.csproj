@@ -16,4 +16,10 @@
     <ProjectReference Include="..\VKA.Cupido.Persistence\VKA.Cupido.Persistence.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="EmailTemplate.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>
